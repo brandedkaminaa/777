@@ -1,1 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Room</title>
+ <link rel="stylesheet" href="profile.css"> <!-- Include your styles here -->
+
+</head>
+
+  <body>
+  
+<div id="user-info" style="display: none; flex-direction: column;">
+  <p>Email: <span id="user-email"></span></p>
+  <p>Full Name: <span id="user-fullname"></span></p>
+  <p>Favourite Song: <span id="user-song"></span></p>
+  <p>Milk Before Cereal: <span id="user-milk"></span></p>
+  <p>Last Login: <span id="user-last-login"></span></p>
+</div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script> <!-- Include Firebase Storage -->
+  <script src="firebaseConfig.js"></script> <!-- Your Firebase configuration -->
+  <script src="profile.js"></script> <!-- Real-time messaging logic -->
+</body>
+  </html>
 
