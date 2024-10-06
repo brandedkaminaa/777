@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Login + Firebase Authentication</title>
 
+    <!-- Cool Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+
+    <!-- Glowing overlay for subtle effects -->
+    <div id="glow_overlay"></div>
+    <div id="fire-particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <!-- Add more particles if needed -->
+    </div>
+
+
+    <!-- Container for the login form -->
+    <div id="form_container" class="bounce-in">
+            <div id="form_header_container">
+                <h2 id="form_header" class="glow">Login + Firebase Database</h2>
+            </div>
+
+            <div id="form_content_container">
+                <div id="form_content_inner_container">
+                    <!-- Full name input field with pulse effect -->
+                    <input type="text" id="full_name" placeholder="Full Name" class="input-effect" required aria-label="Full Name">
+                    
+                    <!-- Email input field with glowing border -->
+                    <input type="email" id="email" placeholder="Email" class="input-effect" required aria-label="Email">
+                    
+                    <!-- Password input field with animated focus -->
+                    <input type="password" id="password" placeholder="New Password" class="input-effect" required aria-label="Password">
+                    
+                    <!-- Toggle password visibility with subtle hover animation -->
+                    <button type="button" id="toggle-password" class="btn-animate" onclick="togglePasswordVisibility()">Show</button>
+                    
+                    <!-- Favourite song input field with slide animation -->
+                    <input type="text" id="favourite_song" placeholder="Favourite Song" class="input-effect" required aria-label="Favourite Song">
+                    
+                    <!-- Milk before cereal input field with subtle shaking on hover -->
+                    <input type="text" id="milk_before_cereal" placeholder="Milk Before Cereal? (Yes | No)" class="input-effect" required aria-label="Milk Before Cereal?">
+
+                    <!-- Buttons for login and register with 3D animation -->
+                    <div id="button_container">
+                        <button class="btn-3d" onclick="login()">Login</button>
+                        <button class="btn-3d" onclick="register()">Register</button>
+                    </div>
+                </div>
+                <!-- Message area for feedback -->
+                <div id="message" class="message"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase JS SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+    <!-- Include the Firebase configuration and functions from external JS file -->
+    <script src="index.js"></script>
+
+    <script>
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const toggleButton = document.getElementById('toggle-password');
+            const isPasswordVisible = passwordInput.type === 'text';
+            passwordInput.type = isPasswordVisible ? 'password' : 'text';
+            toggleButton.textContent = isPasswordVisible ? 'Show' : 'Hide';
+        }
+
+        function displayMessage(msg, isError = false) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = msg;
+            messageDiv.style.color = isError ? 'red' : 'green';
+        }
+    </script>
+</body>
+      </html>
