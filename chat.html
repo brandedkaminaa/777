@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Room</title>
+  <link rel="stylesheet" href="chat.css"> <!-- Include your styles here -->
+</head>
 
+  <body>
+  <div class="chat-container">
+    <h1>Real-time Chat</h1>
+    <div id="chat-box" class="chat-box"></div> <!-- Chat messages will appear here -->
+    <input type="text" id="message" placeholder="Type your message..." autocomplete="off">
+    <button id="send-button">Send</button>
+    
+    <!-- The paperclip (📎) icon for attaching images -->
+    <button id="attach-icon" onclick="document.getElementById('image-input').click();">📎</button>
+
+    <!-- Hidden file input for uploading images -->
+    <input type="file" id="image-input" accept="image/*" style="display: none;" onchange="uploadImage(event)">
+  </div>
+      <div id="popup" class="popup">
+
+
+    <span class="close-button" onclick="closePopup()">&times;</span>
+
+
+    <iframe id="youtube-video" width="640" height="360" src="" frameborder="0" allowfullscreen></iframe>
+
+
+ </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script> <!-- Include Firebase Storage -->
+  <script src="firebaseConfig.js"></script> <!-- Your Firebase configuration -->
+  <script src="chat.js"></script> <!-- Real-time messaging logic -->
+</body>
+  </html>
